@@ -1,0 +1,54 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+@theme {
+  --font-press-start: 'Press Start 2P', cursive;
+  
+  /* Define the hit animation */
+  --animate-hit: hit 0.3s ease-in-out;
+
+  @keyframes hit {
+    0%, 100% { 
+      transform: translateX(0); 
+      filter: none; 
+    }
+    25%, 75% { 
+      transform: translateX(-4px); 
+      /* Red Flash Effect */
+      filter: brightness(2) sepia(1) hue-rotate(-50deg) saturate(5); 
+    }
+    50% { 
+      transform: translateX(4px);
+      filter: brightness(2) sepia(1) hue-rotate(-50deg) saturate(5);
+    }
+  }
+}
+
+:root {
+  background-color: #0f172a; 
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; 
+  user-select: none; 
+  -webkit-user-select: none;
+  font-family: var(--font-press-start);
+}
+
+button:focus {
+  outline: none;
+}
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #1e293b; }
+::-webkit-scrollbar-thumb { background: #475569; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #64748b; }
+
+img {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor;
+}
